@@ -1,0 +1,218 @@
+<!-- /*
+* Template Name: Tour
+* Template Author: Untree.co
+* Tempalte URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+{% extends './include/head.html' %} {% block body %}
+<!-- Modal -->
+
+
+
+<div class="modal fades" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-aos="fade-up" data-aos-delay="100">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+            </div>
+            <div class="modal-body">
+                Cần thêm nhiều thông tin !
+            </div>
+            <div class="modal-footer">
+                <!--		<button type="button" class="btn btn-success" data-dismiss="modal">Đồng ý</button>-->
+                <a href="index" class="btn btn-success">Đồng ý</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="intro-wrap">
+                    <h1 class="mb-5"><span class="d-block">TƯ VẤN MUA</span>XE <span class="typed-words"></span></h1>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <form class="form">
+                                <div class="row mb-4">
+                                    <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
+                                        <select name="manufacturer" id="manufacturer" class="form-control custom-select">
+											<option value="aston-martin">Aston Martin</option>
+											<option value="audi">Audi</option>
+											<option value="ford">Ford</option>
+											<option value="honda">Honda</option>
+											<option value="huyndai">Hyundai</option>
+										</select>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
+                                        <select name="car_category" id="car_category" class="form-control custom-select">
+											<option value="null">Phân khúc xe</option>
+											<option value="sieu-xe-the-thao">Siêu xe/ Xe thể thao</option>
+											<option value="xe-sang-co-nho">Xe sang cỡ nhỏ</option>
+											<option value="xe-sang-co-trung">Xe sang cỡ trung</option>
+											<option value="xe-sang-co-lon">Xe sang cỡ lớn</option>
+											<option value="ban-tai-co-trung">Bán tải cỡ trung</option>
+											<option value="xe-co-trung-hang-d">Xe cỡ trung hạng D</option>
+											<option value="xe-co-trung-hang-e">Xe cỡ trung hạng E</option>
+											<option value="xe-co-vua-hang-c">Xe cỡ vừa hạng C</option>
+											<option value="xe-co-nho-hang-b">Xe cỡ nhỏ hạng B</option>
+											<option value="xe-co-nho-hang-a">Xe cỡ nhỏ hạng A</option>
+											<option value="mpv-co-nho">MPV cỡ nhỏ</option>
+										</select>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
+                                        <select name="car_engine" id="car_engine" class="form-control custom-select">
+											<option value="null">Động cơ </option>
+											<optgroup label="Aston Martin">
+												<option value="5_2_v12">5.2 V12</option>
+												<option value="4_0_V8">4.0 V8</option>
+												<option value="4_0_twin_turbo_V8">4.0 twin-turbo V8</option>
+											</optgroup>
+											<optgroup label="Audi">
+												<option value="tfsi_2_0_mild_hybrid_12v">TFSI 2.0 Mild-hybrid 12V</option>
+												<option value="tfsi_1_4_cylinder_on_demand">TFSI 1.4 cylinder on demand</option>
+												<option value="tfsi_3_0_mild_hybrid_48v">TFSI 3.0 Mild-hybrid 48V</option>
+												<option value="tfsi_2_0">TFSI 2.0</option>
+												<option value="45_tfsi_2_0">45 TFSI 2.0</option>
+											</optgroup>
+											<optgroup label="Ford">
+												<option value="2_0_i4_tdci_truc_cam_kep">2.0 i4 TDCi, trục cam kép</option>
+												<option value="3_xi_lanh_thang_hang_duratec_ti_vct">3 xi-lanh thẳng hàng, Duratec Ti-VCT</option>
+												<option value="3_xi_lanh_thang_hang_ecoboost">3 xi-lanh thẳng hàng, Ecoboost</option>
+												<option value="bi_turbo_diesel_2_0l_i4_tdci">Bi-Turbo Diesel 2.0L i4 TDCi</option>
+												<option value="ecoboost">EcoBoost</option>
+												<option value="ecoboost_i4">EcoBoost I4</option>
+												<option value="i4_tdci_bi_turbo">i4 TDCi, Bi-Turbo</option>
+												<option value="single_turbo_diesel_2_0l_i4_tdci">Single Turbo Diesel 2.0L i4 TDCi</option>
+											</optgroup>
+											<optgroup label="Honda">
+												<option value="1_5_vtec_turbo">1.5 VTEC Turbo</option>
+												<option value="vtec_1_5_turbo_i4">VTEC 1.5 turbo I4</option>
+												<option value="1_2_i_vtec">1.2 i-VTEC</option>
+												<option value="1_5_i_vtec">1.5 i-VTEC</option>
+												<option value="1_5_turbo">1.5 Turbo</option>
+											</optgroup>
+											<optgroup label="Hyundai">
+												<option value="i4">I4</option>
+												<option value="i4_2_2">I4 2.2</option>
+												<option value="i4_smart_stream">I4 Smart Stream</option>
+												<option value="i4_turbo">I4 Turbo</option>
+												<option value="i4_turbo_smartstream">I4 Turbo SmartStream</option>
+												<option value="smartstream_g_1_5">Smartstream G1.5</option>
+												<option value="2_0_i4_tang_ap_igenium">2.0 I4 tăng áp Igenium</option>
+												<option value="2_0_turbo">2.0 Turbo</option>
+											</optgroup>
+										</select>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
+                                        <input id="submit_form" type="submit" class="btn btn-primary btn-block" value="Tra cứu" data-toggle="tooltip" data-placement="bottom" title="Tra cứu tìm ra xe phù hợp với bạn">
+                                    </div>
+                                    {% comment %}
+                                    <div class="col-lg-8">
+                                        <label class="control control--checkbox mt-3">
+											<span class="caption">Lưu tìm kiếm</span>
+											<input type="checkbox" checked="checked" />
+											<div class="control__indicator"></div>
+										</label>
+                                    </div> {% endcomment %}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="slides">
+                    <img src="../static/choose_oto_expert_system/images/index/xe-moi-2022-1.jpg" alt="Image" class="img-fluid active" style="height: 100%; object-fit: cover;">
+                    <img src="../static/choose_oto_expert_system/images/index/xe-moi-2022-2.jpg" alt="Image" class="img-fluid active" style="height: 100%; object-fit: cover;">
+                    <img src="../static/choose_oto_expert_system/images/index/xe-moi-2022-3.jpg" alt="Image" class="img-fluid active" style="height: 100%; object-fit: cover;">
+                    <img src="../static/choose_oto_expert_system/images/index/xe-moi-2022-4.jpg" alt="Image" class="img-fluid active" style="height: 100%; object-fit: cover;">
+                    <img src="../static/choose_oto_expert_system/images/index/xe-moi-2022-5.jpg" alt="Image" class="img-fluid active" style="height: 100%; object-fit: cover;">
+                    <img src="../static/choose_oto_expert_system/images/index/xe-moi-2022-6.jpg" alt="Image" class="img-fluid active" style="height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="untree_co-section">
+    <div class="container">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title text-center mb-3">Đặc Vấn Đề</h2>
+                <p style="text-align:justify;">Ngày nay, mọi người đều có thể tìm kiếm những thông tin cần thiết ở trên internet kể cả việc lựa chọn và mua xe như thế nào. Nhưng tất cả các websites cung cấp thông tin ấy chỉ hướng dẫn các cách lựa chọn một chiếc xe như thế nào cho phù
+                    hợp, các thông tin đều chung chung với nhau. Nhưng đều người dùng muốn là chọn một chiếc xe chính xác phù hợp với của bản thân vì trên thị trường có rất nhiều thương hiệu xe khiến khách hàng mua xe phải đắng do suy nghĩ và khó để so
+                    sánh các xe do các công nghệ sử dụng ở các dòng xe và phiên bản xe không giống nhau. Đề tài xây dựng hệ chuyên gia tư vấn mua xe sẽ giải quyết được những vấn đề gặp phải này.</p>
+            </div>
+        </div>
+        <div class=" feature-1-wrap d-md-flex flex-md-column order-lg-1">
+            <div class="row d-flex justify-content-center" id="list_cars_items">
+
+            </div>
+            <div class=" d-flex justify-content-center">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous" id="pagination_prev">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next" id="pagination_next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="py-5 container so-do">
+    <h2 class="text-center">Sơ đồ thiết kế hệ chuyên gia</h2>
+    <figure class="zoom" style="background:url(../static/choose_oto_expert_system/images/index/so-do-thiet-ket-truy-van.jpeg)" onmousemove="zoom(event)" ontouchmove="zoom(event)">
+        <img src="../static/choose_oto_expert_system/images/index/so-do-thiet-ket-truy-van.jpeg" />
+    </figure>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="py-5 cta-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h2 class="mb-2 text-white">Tìm hiểu những siêu phẩm 4 bánh mới nhất. Hãy liên hệ với tôi ngay</h2>
+                <p class="mb-4 lead text-white text-white-opacity">Thông tin sinh viên, thông tin giảng viên hướng dẫn, kết quả đạt được của sinh viên</p>
+                <p class="mb-0"><a href="about#chude" class="btn btn-outline-white text-white btn-md font-weight-bold">Liên hệ</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function zoom(e) {
+        var zoomer = e.currentTarget;
+        e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+        e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+        x = (offsetX / zoomer.offsetWidth) * 100
+        y = (offsetY / zoomer.offsetHeight) * 100
+        zoomer.style.backgroundPosition = x + "% " + y + "%";
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,365 @@
+<!-- /*
+* Template Name: Tour
+* Template Author: Untree.co
+* Tempalte URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+{% extends './include/head.html' %} {% load static %} {% block body %}
+<div class="hero hero-inner">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mx-auto text-center">
+                <div class="intro-wrap">
+                    <h1 class="mb-0 text-uppercase">{{item.ten_xe}}</h1>
+                    <p class="text-white">{{sub_mo_ta_chi_tiet}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="untree_co-section">
+    <div class="container  my-5">
+        <div class="mb-5">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="owl-single dots-absolute owl-carousel">
+                    {% for items in danh_sach_hinh %}
+                    <img src="{% static 'choose_oto_expert_system/images/cars/'%}{{items}}" alt="{{items}}" style="width: 100%; height:30rem; object-fit: cover;"> {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="row justify-content-center p-3">
+            <div class="col-lg-7">
+                <div class="custom-block" data-aos="fade-up">
+                    <h2 class="section-title">Mô tả / đánh giá chi tiết</h2>
+                    <div class="custom-accordion" id="accordion_1">
+                        {{item.mo_ta_chi_tiet}}
+                    </div>
+                </div>
+                <!-- END .custom-block -->
+                <div class="custom-block" data-aos="fade-up">
+                    <h2 class="section-title">Thông số kỹ thuật cơ bản</h2>
+                    <div class="row gutter-v2 gallery">
+                        <div class="col-6">
+                            <p><b>Động cơ</b></p>
+                            <p>{{item.dong_co}}</p>
+                        </div>
+                        <div class="col-6">
+                            <p><b>Hộp số</b></p>
+                            <p>{{item.ho_so}}</p>
+                        </div>
+                        <div class="col-6">
+                            <p><b>Công suất (mã lực)</b></p>
+                            <p>{{item.cong_xuat}}</p>
+                        </div>
+                        <div class="col-6">
+                            <p><b>Hệ dẫn động</b></p>
+                            <p>{{item.he_dan_dong}}</p>
+                        </div>
+                        <div class="col-6">
+                            <p><b>Mô-men xoắn (Nm)</b></p>
+                            <p>{{item.momen_xoan}}</p>
+                        </div>
+                        <div class="col-6">
+                            <p><b>Số chỗ</b></p>
+                            <p>{{item.so_cho}}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END .custom-block -->
+
+                <div class="custom-block" data-aos="fade-up">
+                    <h2 class="section-title">Video</h2>
+                    <iframe class="video-wrap" width="100%" style="height: 30rem" src="https://www.youtube.com/embed/E8IXT85yYK4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <!-- END .custom-block -->
+
+            </div>
+
+            <div class="col-lg-3">
+                <div class="custom-block" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="section-title">Giá niêm yết</h2>
+                    <div class="form-group">
+                        <label class="text-black" for="phien_ban"><b>Phiên bản</b></label>
+                        <select name="" id="phien_ban" class="custom-select">
+                  <option value="">{{item.dong_co}} - {{item.ten_xe}}</option>
+                </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-black" for="select_tinh"><b>Nơi đăng ký</b></label>
+                        <select name="" id="select_tinh" class="custom-select">
+                  <option value="ha-noi">Hà Nội</option>
+                  <option value="ho-chi-minh">Hồ Chí Minh</option>
+                  <option value="cao-bang">Cao Bằng</option>
+                  <option value="ha-tinh">Hà Tĩnh</option>
+                  <option value="dong-thap">Đồng Tháp</option>
+                  <option value="nha-trang">Nha Trang</option>
+                </select>
+                    </div>
+                </div>
+                <div>
+                    <p>Giá lăn bánh tại <span id="gia_lan_banh_tai">Địa điểm</span>: <b><span id="gia_la_banh_niem_yet">{{item.gia_niem_uyet}}</span></b> VNĐ</p>
+                </div>
+                <hr>
+                <div class="custom-block" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <h2 class="section-title" style="text-align:left;">
+                            Dự tính chi phí
+                        </h2>
+                        <span style="float:right;">
+                  (VNĐ)
+              </span>
+                        <div>
+                            <p style="text-align:left;">
+                                Giá niêm yết:
+                                <span id="gia_niem_yet" style="float:right;">
+                      {{item.gia_niem_uyet}}
+                  </span>
+                            </p>
+                        </div>
+                        <div>
+                            <p style="text-align:left;">
+                                Phí trước bạ (<span id="phi_truoc_ba">{{cost_oto.phi_truoc_ba}}</span>%):
+                                <span style="float:right;" id="phi_truoc_ba_tinh">
+                    Gía niêm yết * phí trước bạn / 100
+                  </span>
+                            </p>
+                        </div>
+                        <div>
+                            <p style="text-align:left;">
+                                Phí sử dụng đường bộ (01 năm):
+                                <span id="phi_su_dung_duong_bo" style="float:right;">
+                      {{cost_oto.phi_su_dung_duong_bo}}
+                  </span>
+                            </p>
+                        </div>
+                        <div>
+                            <p style="text-align:left;">
+                                Bảo hiểm trách nhiệm dân sự (01 năm):
+                                <span id="bao_hiem_trach_nhiem" style="float:right;">
+                      {{cost_oto.bao_hiem_trach_nhiem}}
+                  </span>
+                            </p>
+                        </div>
+                        <div>
+                            <p style="text-align:left;">
+                                Phí đăng kí biển số:
+                                <span id="phi_dk_bien_so" style="float:right;">
+                      {{cost_oto.phi_dk_bien_so}}
+                  </span>
+                            </p>
+                        </div>
+                        <div>
+                            <p style="text-align:left;">
+                                Phí đăng kiểm:
+                                <span id="phi_dang_kiem" style="float:right;">
+                      {{cost_oto.phi_dang_kiem}}
+                  </span>
+                            </p>
+                        </div>
+                        <div>
+                            <p style="text-align:left;">
+                                <b>Tổng cộng:</b>
+                                <span id="tong_cong" style="float:right;">
+                      <b>xxxx</b>
+                  </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="custom-block" data-aos="fade-up" data-aos-delay="100">
+                        <h2 class="section-title">Tính giá mua trả góp</h2>
+                        <div class="row">
+                            <div class="col-xs-12 col-12">
+                                <nav>
+                                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Ước tính số<br>tiền trả hàng tháng</a>
+                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Ước tính số <br>tiền có thể vay</a>
+                                    </div>
+                                </nav>
+                                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                                    <div class="tab-pane active row" id="nav-home" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                        <div class="col-12 mb-1">
+                                            <div class="input-group flex-nowrap">
+                                                <input type="number" id="vaytien_sotienvay" class="form-control" style="text-align: right;" placeholder="Số tiền vay" aria-label="Username" aria-describedby="addon-wrapping">
+                                                <span class="form-label p-2" style="width: 20%; text-align: center;">VNĐ</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-1">
+                                            <div class="input-group flex-nowrap">
+                                                <input type="number" id="vaytien_kihanvay" class="form-control" style="text-align: right;" placeholder="Kỳ hạn vay" aria-label="Username" aria-describedby="addon-wrapping">
+                                                <span class="form-label p-2" style="width: 20%; text-align: center;">năm</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-1">
+                                            <div class="input-group flex-nowrap">
+                                                <input type="number" id="vaytien_laixuat" class="form-control" style="text-align: right;" placeholder="Lãi xuất" aria-label="Username" aria-describedby="addon-wrapping">
+                                                <span class="form-label p-2" style="width: 20%; text-align: center;">%/năm</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 m-3">
+                                            <div class=" d-flex justify-content-center ">
+                                                <button type="button" id="vaytien_btntinhlai" class="btn btn-primary btn-lg ">Tính lãi</button>
+                                            </div>
+                                            <!-- <div class="text-center fade mt-1" id="TinhTienVayMessage_" data-aos="fade-up" data-aos-delay="100">
+                                                <p class="text-danger"></p>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade row" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                        <div class="col-12 mb-1">
+                                            <div class="input-group flex-nowrap">
+                                                <input type="number" class="form-control" id="ThuNhapHangThang" style="text-align: right;" placeholder="Thu nhập hàng tháng" aria-label="Username" aria-describedby="addon-wrapping">
+                                                <span class="form-label p-2" style="width: 20%; text-align: center;">VNĐ</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-1">
+                                            <div class="input-group flex-nowrap">
+                                                <input type="number" class="form-control" id="ChiTieuHangThang" style="text-align: right;" placeholder="Chi tiêu hàng tháng" aria-label="Username" aria-describedby="addon-wrapping">
+                                                <span class="form-label p-2" style="width: 20%; text-align: center;">VNĐ</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-1">
+                                            <div class="input-group flex-nowrap">
+                                                <input type="number" class="form-control" id="KyHanVay" style="text-align: right;" placeholder="Kỳ hạn vay" aria-label="Username" aria-describedby="addon-wrapping">
+                                                <span class="form-label p-2" style="width: 20%; text-align: center;">năm</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-1">
+                                            <div class="input-group flex-nowrap">
+                                                <input type="number" class="form-control" id="LaiXuatTienVay" style="text-align: right;" placeholder="Lãi xuất" aria-label="Username" aria-describedby="addon-wrapping">
+                                                <span class="form-label p-2" style="width: 20%; text-align: center;">%/năm</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 m-3">
+                                            <div class=" d-flex justify-content-center ">
+                                                <button type="button" id="SoTienCoTheVayBtn" class="btn btn-primary btn-lg">Tính lãi</button>
+                                            </div>
+                                            <!-- <div class="text-center fade mt-1" id="TinhTienVayMessage" data-aos="fade-up" data-aos-delay="100">
+                                                <p class="text-danger"></p>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="py-3 ">
+        <h2 class="py-3 mb-5 text-center cta-section text-white ">Xe Nổi Bật 2022</h2>
+        <div class="container ">
+            <div class="custom-block " data-aos="fade-up ">
+                <div class="row d-flex justify-content-center " id="list_cars_items_more">
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- Start tính lãi hàng tháng   -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>Tính lãi xuất</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align:left;">
+                        <b>Tiền gốc phải trả hàng tháng: </b>
+                        <span style="float:right;"><span id="tiengoc"></span> <b>VNĐ</b></span>
+                    </p>
+                    <p>
+                        <b>Lãi xuất hàng tháng: </b>
+                        <span style="float:right;"><span id="tienlai"></span> <b>VNĐ</b></span>
+                    </p>
+                    <p>
+                        <b>Tổng số tiền: </b>
+                        <span style="float:right;"><span id="tongtien"></span> <b>VNĐ</b></span>
+                    </p>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModal_">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End tính lãi hàng tháng   -->
+
+    <!--Start tính số tiền có thể vay   -->
+    <div class="modal fade" id="SoTienCoTheVayModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>Tính lãi xuất</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align:left;">
+                        Số tiền có thể vay tối đa:
+                        <span style="float:right;"><b><span id="SoTienCoTheVay"></span></b> VNĐ</span>
+                    </p>
+                    <p>
+                        Số tiền phải trả:
+                        <span style="float:right;"><b><span id="SoTienPhaiTra"></span></b> VNĐ</span>
+                    </p>
+                    <p>
+                        Số tiền phải trả hàng tháng:
+                        <span style="float:right;"><b><span id="TienLaiHangThang"></span></b> VNĐ</span>
+                    </p>
+                    <p>
+                        <b>Tổng số tiền phải trả: </b>
+                        <span style="float:right;"><b><span id="TongSoTienPhaiTra"></span> </b>VNĐ</span>
+                    </p>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END tính số tiền có thể vay   -->
+
+    <div class="py-5 cta-section ">
+        <div class="container ">
+            <div class="row text-center ">
+                <div class="col-md-12 ">
+                    <h2 class="mb-2 text-white ">Báo Cáo Sản Phẩm</h2>
+                    <p class="mb-4 lead text-white text-white-opacity ">Đồ án <b>Thiết kế hệ chuyên gia tư vấn mua ô-tô</b>, giao diện sản phẩm website, quá trình thực hiện và mô hình xây dựng prolog</p>
+                    <p class="mb-0 "><a href="about#baocaosnapham " class="btn btn-outline-white text-white btn-md font-weight-bold ">Bấm để xem</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11" data-aos="fade-up" data-aos-delay="100">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="../../static/choose_oto_expert_system/images/favicon.png" class="rounded me-2" alt="Icons">
+            <strong class="me-auto">Thông báo</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+</div>
+{% endblock %}
